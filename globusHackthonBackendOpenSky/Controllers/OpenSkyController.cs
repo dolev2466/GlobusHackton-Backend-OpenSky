@@ -61,13 +61,16 @@ namespace globusHackthonBackendOpenSky.Controllers
                 state[(int)OpenSkyFields.callsign].ValueKind == JsonValueKind.String &&
                 state[(int)OpenSkyFields.latitude].ValueKind == JsonValueKind.Number &&
                 state[(int)OpenSkyFields.longitude].ValueKind == JsonValueKind.Number &&
-                state[(int)OpenSkyFields.baro_altitude].ValueKind == JsonValueKind.Number
+                state[(int)OpenSkyFields.baro_altitude].ValueKind == JsonValueKind.Number &&
+                state[(int)OpenSkyFields.true_track].ValueKind == JsonValueKind.Number &&
+                state[(int)OpenSkyFields.vertical_rate].ValueKind == JsonValueKind.Number
             ).Select(state => new OpenSky {
-                id = state[(int)OpenSkyFields.callsign].GetString(),
-                latitude = state[(int)OpenSkyFields.latitude].GetDouble(),
-                longitude = state[(int)OpenSkyFields.longitude].GetDouble(),
-                altitude = state[(int)OpenSkyFields.baro_altitude].GetDouble(),
-                true_track = state[(int)OpenSkyFields.true_track].GetDouble()
+                CallSign = state[(int)OpenSkyFields.callsign].GetString(),
+                Latitude = state[(int)OpenSkyFields.latitude].GetDouble(),
+                Longitude = state[(int)OpenSkyFields.longitude].GetDouble(),
+                Altitude = state[(int)OpenSkyFields.baro_altitude].GetDouble(),
+                TrueTrack = state[(int)OpenSkyFields.true_track].GetDouble(),
+                VerticalRate = state[(int)OpenSkyFields.vertical_rate].GetDouble()
             });
         }
 
