@@ -66,7 +66,8 @@ namespace globusHackthonBackendOpenSky.Controllers
                 id = state[(int)OpenSkyFields.callsign].GetString(),
                 latitude = state[(int)OpenSkyFields.latitude].GetDouble(),
                 longitude = state[(int)OpenSkyFields.longitude].GetDouble(),
-                altitude = state[(int)OpenSkyFields.baro_altitude].GetDouble()
+                altitude = state[(int)OpenSkyFields.baro_altitude].GetDouble(),
+                true_track = state[(int)OpenSkyFields.true_track].GetDouble()
             });
         }
 

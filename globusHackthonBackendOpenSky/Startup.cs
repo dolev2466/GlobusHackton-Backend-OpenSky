@@ -19,7 +19,7 @@ namespace globusHackthonBackendOpenSky
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors(o => o.AddDefaultPolicy(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -38,6 +38,9 @@ namespace globusHackthonBackendOpenSky
             }
 
             app.UseRouting();
+
+            //2 - Adds CORS middleware. This must be placed AFTER app.UseRouting().
+            app.UseCors();
 
             app.UseAuthorization();
 
